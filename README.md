@@ -1,74 +1,111 @@
-A full-stack Personal Finance Tracker application that allows users to manage their income, expenses, and transactions. The app is built with Node.js, Express.js, PostgreSQL, and Redis for caching. Users can authenticate via JWT and perform CRUD operations on their financial transactions.
+# Personal Finance Tracker Application
 
-Features
-User Authentication: Register and log in with JWT (JSON Web Tokens) authentication.
-Transaction Management: Users can add, update, delete, and retrieve income and expense transactions.
-PostgreSQL Database: All user and transaction data is stored securely in a PostgreSQL database.
-Redis Caching: Frequently accessed data (like transaction lists) is cached using Redis to optimize performance.
-Scalable API: Built as a RESTful API, making it easy to expand and integrate with other services.
-Tech Stack
-Backend: Node.js, Express.js
-Database: PostgreSQL (with Sequelize ORM)
-Authentication: JWT (JSON Web Tokens)
-Password Hashing: bcrypt.js
-Caching: Redis
-API Documentation: Postman (for API testing)
-Installation
-Prerequisites
-Node.js installed on your machine: Download Node.js
-PostgreSQL database: Download PostgreSQL
-Redis (optional, for caching): Install Redis
-Step-by-Step Setup
-Clone the Repository:
+## Overview
 
-git clone https://github.com/yourusername/personal-finance-tracker.git
-cd personal-finance-tracker
-Install Dependencies:
+The Personal Finance Tracker is a full-stack application that allows users to manage their income, expenses, and transactions efficiently. Built with Node.js, Express.js, PostgreSQL, and Redis, it provides features like user authentication, transaction management, and caching for performance optimization.
 
-Run the following command to install the required Node.js packages:
+---
 
+## Features
 
-npm install
-Configure PostgreSQL:
+- **User Authentication**: Register and log in securely with JWT (JSON Web Tokens).
+- **Transaction Management**: Add, update, delete, and retrieve income and expense transactions.
+- **PostgreSQL Database**: Securely store all user and transaction data.
+- **Redis Caching**: Optimize performance by caching frequently accessed data (e.g., transaction lists).
+- **Scalable API**: RESTful API design ensures easy integration and expansion.
 
-Make sure PostgreSQL is installed and running.
-Create a new database for your project (e.g., finance_tracker).
+---
 
-Set Up Environment Variables (Optional):
+## Tech Stack
 
-Create a .env file in the root of the project and add your JWT secret key and PostgreSQL connection details:
-env
+- **Backend**: Node.js, Express.js
+- **Database**: PostgreSQL (with Sequelize ORM)
+- **Authentication**: JWT (JSON Web Tokens)
+- **Password Hashing**: bcrypt.js
+- **Caching**: Redis
+- **API Documentation**: Postman (for API testing)
 
-JWT_SECRET=your_jwt_secret_key
-POSTGRES_USER=yourUsername
-POSTGRES_PASSWORD=yourPassword
-POSTGRES_DB=finance_tracker
-Run the Application:
+---
 
-Run the app with the following command:
+## Installation
 
-node server.js
-The server will start running on port 3000 by default.
+### Prerequisites
 
-Access the API:
+- **Node.js**: Download and install from [Node.js Official Website](https://nodejs.org/).
+- **PostgreSQL**: Download and install from [PostgreSQL Official Website](https://www.postgresql.org/).
+- **Redis**: Optional, but recommended. Install from [Redis Official Website](https://redis.io/).
 
-The API will be available at http://localhost:3000. You can interact with the following endpoints:
+### Step-by-Step Setup
 
-POST /api/auth/register: Register a new user (requires username, email, password).
-POST /api/auth/login: Log in with an existing user (requires email and password).
-GET /api/transactions: Fetch all transactions (requires authentication).
-POST /api/transactions: Create a new transaction (requires type, amount, description).
-PUT /api/transactions/:id: Update an existing transaction (requires type, amount, description).
-DELETE /api/transactions/:id: Delete a transaction (requires authentication).
-API Documentation
-To test and interact with the API, you can use Postman or another API testing tool.
+1. **Clone the Repository**:
 
+    ```bash
+    git clone https://github.com/yourusername/personal-finance-tracker.git
+    cd personal-finance-tracker
+    ```
 
-Deployment
-You can deploy the application to a cloud service like Heroku. For Heroku deployment:
+2. **Install Dependencies**:
 
-Create a Procfile in the root of your project with the following content:
+    ```bash
+    npm install
+    ```
 
-makefile
-web: node server.js
-Deploy following Heroku’s Node.js deployment guide.
+3. **Configure PostgreSQL**:
+
+    - Ensure PostgreSQL is installed and running.
+    - Create a new database for the project (e.g., `finance_tracker`).
+
+4. **Set Up Environment Variables** (Optional but recommended):
+
+    - Create a `.env` file in the project root with the following content:
+
+      ```env
+      JWT_SECRET=your_jwt_secret_key
+      POSTGRES_USER=yourUsername
+      POSTGRES_PASSWORD=yourPassword
+      POSTGRES_DB=finance_tracker
+      ```
+
+5. **Run the Application**:
+
+    ```bash
+    node server.js
+    ```
+
+    - The server will start on port 3000 by default.
+
+6. **Access the API**:
+
+    - The API is available at `http://localhost:3000`.
+    - Supported endpoints:
+
+        - **POST** `/api/auth/register`: Register a new user (requires `username`, `email`, `password`).
+        - **POST** `/api/auth/login`: Log in with an existing user (requires `email`, `password`).
+        - **GET** `/api/transactions`: Fetch all transactions (requires authentication).
+        - **POST** `/api/transactions`: Create a new transaction (requires `type`, `amount`, `description`).
+        - **PUT** `/api/transactions/:id`: Update an existing transaction (requires `type`, `amount`, `description`).
+        - **DELETE** `/api/transactions/:id`: Delete a transaction (requires authentication).
+
+---
+
+## API Documentation
+
+- Use [Postman](https://www.postman.com/) or any API testing tool to test and interact with the API.
+
+---
+
+## Deployment
+
+### Deploying to Heroku
+
+1. Create a `Procfile` in the project root with the following content:
+
+    ```makefile
+    web: node server.js
+    ```
+
+2. Follow Heroku’s [Node.js deployment guide](https://devcenter.heroku.com/articles/deploying-nodejs) to deploy the application.
+
+---
+
+Happy Tracking!
